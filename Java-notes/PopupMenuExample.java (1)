@@ -1,0 +1,44 @@
+
+package bmcunitsecond;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+
+public class PopupMenuExample {
+    public PopupMenuExample(){
+        JFrame frame = new JFrame("PopUp Menu Example!!");
+        
+        JPopupMenu jPopupMenu = new JPopupMenu("Edit");
+        JMenuItem item1 = new JMenuItem("Copy");
+        JMenuItem item2 = new JMenuItem("Paste");
+        JMenuItem item3 = new JMenuItem("Cut");
+        
+        jPopupMenu.add(item1);
+        jPopupMenu.add(item2);
+        jPopupMenu.add(item3);
+        
+        frame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+              
+                jPopupMenu.show(frame, e.getX(), e.getY());
+            }
+            
+            });
+        
+        frame.setLayout(null);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+    }
+    
+    public static void main(String[] args) {
+        new PopupMenuExample();
+    }
+    
+}
